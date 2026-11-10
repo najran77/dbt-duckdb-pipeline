@@ -3,5 +3,5 @@ sources:
     tables:
       - name: job_postings
         description: One row per job posting  scrape
-        meta:
+        config:
           external_location: '../data/raw/raw_job_postings_*.parquet'
