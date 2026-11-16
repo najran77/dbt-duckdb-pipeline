@@ -26,11 +26,7 @@ A public dbt + DuckDB pipeline over ~692k real job postings, rebuilt and republi
 
 One declared source flows through dbt into three insight marts — with tests gating every build. The dependency graph, chained entirely with `ref()`:
 
-```
-job_postings  ──▶  jobs_per_month   ──▶  monthly_summary
-      │
-      └──────────▶  top_locations
-```
+![dbt DAG diagram](https://raw.githubusercontent.com/najran77/dbt-duckdb-pipeline/master/img/image.png)
 
 No hardcoded table names anywhere — dbt resolves the build order (and what can run in parallel) from the graph itself.
 
