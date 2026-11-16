@@ -1,7 +1,7 @@
 # Automated Job Postings Pipeline (v1) - dbt + DuckDB
 
 [![dbt build & publish](https://github.com/najran77/dbt-duckdb-pipeline/actions/workflows/dbt_build.yml/badge.svg)](https://github.com/najran77/dbt-duckdb-pipeline/actions/workflows/dbt_build.yml)
-[![dbt Docs](https://img.shields.io/badge/dbt_docs-local-lightgrey)](#-docs)
+[![dbt Docs](https://img.shields.io/badge/dbt_docs-live-blue)](https://najran77.github.io/dbt-duckdb-pipeline/#!/overview/analytics)
 
 ![dbt pipeline diagram](https://raw.githubusercontent.com/najran77/dbt-duckdb-pipeline/master/img/dbt_pipeline.png)
 
@@ -15,7 +15,7 @@ A public dbt + DuckDB pipeline over ~692k real job postings, rebuilt and republi
 | --- | --- | --- |
 | **dbt pipeline** | source → cleaned model → insight marts | [`analytics/models/`](https://github.com/najran77/dbt-duckdb-pipeline/tree/master/analytics/models) |
 | **Data tests** | `unique` / `not_null` on key columns | [`schema.yml`](https://github.com/najran77/dbt-duckdb-pipeline/blob/master/analytics/models/schema.yml) |
-| **Dbt docs** | lineage, descriptions, column tests | generated locally — see [Docs](#-docs) below (not hosted yet) |
+| **Dbt docs** | lineage, descriptions, column tests | [Live docs site](https://najran77.github.io/dbt-duckdb-pipeline/#!/overview/analytics) |
 | **Public CI** | build + test + publish on every push | [Actions workflow](https://github.com/najran77/dbt-duckdb-pipeline/blob/master/.github/workflows/dbt_build.yml) |
 | **Environments** | local `dev` vs CI `prod` targets | [`ci/profiles.yml`](https://github.com/najran77/dbt-duckdb-pipeline/blob/master/ci/profiles.yml) |
 | **Published warehouse** | one `ATTACH`, queryable by anyone | [Query it](#-query-the-published-warehouse) |
@@ -86,15 +86,11 @@ SELECT * FROM monthly_summary;
 
 ## 📖 Docs
 
-Docs are generated locally with `dbt docs generate` — not yet published to a hosted site (no GitHub Pages set up for this repo):
+Docs are generated with `dbt docs generate` and published to GitHub Pages:
 
-```bash
-cd analytics
-uv run dbt docs generate
-uv run dbt docs serve
-```
+**→ [najran77.github.io/dbt-duckdb-pipeline](https://najran77.github.io/dbt-duckdb-pipeline/#!/overview/analytics)**
 
-Once running, it shows:
+The site shows:
 
 - The full **lineage graph** (source → models → marts)
 - **Model and column descriptions** from the YAML
@@ -126,6 +122,7 @@ uv run dbt docs serve
 ├── .github/workflows/dbt_build.yml   # public CI: build, test, publish
 ├── ci/profiles.yml                   # prod DuckDB target for Actions
 ├── data/                             # raw + warehouses (gitignored; CI regenerates)
+├── docs/                             # dbt docs site (GitHub Pages)
 ├── scripts/download_data.py          # fetch raw parquet before build
 └── analytics/
     ├── dbt_project.yml
