@@ -8,7 +8,6 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "dbt>=2.0.11",
     "dbt-core>=1.12.6",
     "dbt-duckdb>=1.11.1",
 ]

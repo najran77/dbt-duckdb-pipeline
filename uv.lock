@@ -199,15 +199,6 @@ wheels = [
 ]
 
 [[package]]
-name = "dbt"
-version = "2.0.11"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "mashumaro", extra = ["msgpack"] },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/30/85/9c3f3ee2f58a182b89dd1c308af5f10634fe81645c9c0d35aa10338baa4a/dbt-2.0.11.tar.gz", hash = "sha256:8e8ce5d08237137667b24f9a1331a9a480b9c6b41f76c0bfe223ec1106a36371", size = 3291, upload-time = "2026-11-03T20:27:01.627Z" }
-
-[[package]]
 name = "dbt-adapters"
 version = "1.24.5"
 source = { registry = "https://pypi.org/simple" }
@@ -312,14 +303,12 @@ name = "dbt-duckdb-pipeline"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
-    { name = "dbt" },
     { name = "dbt-core" },
     { name = "dbt-duckdb" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "dbt", specifier = ">=2.0.11" },
     { name = "dbt-core", specifier = ">=1.12.6" },
     { name = "dbt-duckdb", specifier = ">=1.11.1" },
 ]
