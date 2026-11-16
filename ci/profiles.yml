@@ -1,0 +1,8 @@
+analytics:
+  outputs:
+    prod:
+      type: duckdb
+      path: ../data/prod.duckdb
+      threads: 4
+
+  target: prod

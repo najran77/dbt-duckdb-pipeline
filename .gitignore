@@ -13,3 +13,6 @@ analytics/README2.md
 data/
 *.duckdb
 logs/
+
+#dbt generated files
+.user.yml
